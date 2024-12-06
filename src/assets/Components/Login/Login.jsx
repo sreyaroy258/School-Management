@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
+
 const Login = () => {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
   });
+  const [error, setError] = useState(""); // To store error messages
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -14,17 +16,17 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your authentication logic here
-    console.log("Login Details:", formData);
-    alert("Login Submitted!");
+    if (!formData.username || !formData.password) {
+      setError("Both fields are required!");
+    } else {
+      setError(""); // Clear error message
+      console.log("Login Details:", formData);
+      alert("Login Submitted!");
+      navigate('/dashboardlayout'); // Navigate to the dashboard layout
+    }
   };
 
   const navigate = useNavigate();
-
-  const handleLogin = () => {
-    // Perform login logic if needed, then navigate
-    navigate('/dashboard'); // This will navigate to the Dashboard page
-  };
 
   return (
     <section className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -84,26 +86,27 @@ const Login = () => {
               />
             </div>
 
+            {/* Error Message */}
+            {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+
             {/* Submit Button */}
-           <form onSubmit={(e) => e.preventDefault()}> {/* Prevent default form submission */}
-           <button
-           type="submit"
-           className="w-full bg-blue-500 text-white font-bold py-3 rounded-lg hover:bg-blue-600 transition duration-300"
-           onClick={handleLogin} // Attach the handleLogin function to the button
-           >
-           Login
-           </button>
-           </form>
+            <button
+              type="submit"
+              className="w-full bg-blue-500 text-white font-bold py-3 rounded-lg hover:bg-blue-600 transition duration-300"
+            >
+              Login
+            </button>
+
             {/* Signup Section */}
             <div className="flex flex-col sm:flex-row items-center sm:justify-between mt-8 text-gray-700 space-y-4 sm:space-y-0">
-  <p className="flex items-center space-x-1 sm:order-1 text-center sm:text-left">
-    <span>Don't Have an Account?</span>
-    <FaArrowRight className="text-blue-500" />
-  </p>
-  <button className="px-3 py-1 bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-600 hover:scale-105 transition duration-300 sm:order-2">
-    Signup Here!
-  </button>
-</div>
+              <p className="flex items-center space-x-1 sm:order-1 text-center sm:text-left">
+                <span>Don't Have an Account?</span>
+                <FaArrowRight className="text-blue-500" />
+              </p>
+              <button className="px-3 py-1 bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-600 hover:scale-105 transition duration-300 sm:order-2">
+                Signup Here!
+              </button>
+            </div>
 
           </form>
         </div>
