@@ -6,14 +6,14 @@ import Students from './assets/Components/Home/components/Students';
 import Teacher from './assets/Components/Home/components/Teacher';
 import Classes from './assets/Components/Home/components/Classes';
 import Login from './assets/Components/Login/Login';
-
+import Signup from './assets/Components/Signup.jsx/Signup';
 const App = () => {
   return (
     <Router>
       <Routes>
         {/* Login page route */}
         <Route path="/" element={<Login />} />
-        
+        <Route path="/signup" element={<Signup />} />
         {/* Protected routes after login */}
         <Route path="/dashboardlayout" element={<DashboardLayout />}>
           <Route index element={<Dashboard />} />

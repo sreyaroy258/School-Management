@@ -103,8 +103,10 @@ const Login = () => {
                 <span>Don't Have an Account?</span>
                 <FaArrowRight className="text-blue-500" />
               </p>
-              <button className="px-3 py-1 bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-600 hover:scale-105 transition duration-300 sm:order-2">
-                Signup Here!
+              <button
+                onClick={() => navigate("/signup")}
+              className="px-3 py-1 bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-600 hover:scale-105 transition duration-300 sm:order-2">
+               Signup Here!
               </button>
             </div>
 
