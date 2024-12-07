@@ -1,6 +1,7 @@
 // Dashboard.js
 import React from 'react';
 import EventCarousel from './EventCarousel';
+import RecentActivities from './RecentActivities';
 
 const Dashboard = () => {
   return (
@@ -27,18 +28,7 @@ const Dashboard = () => {
 
       {/* Recent Activities */}
       <div className="mt-10 bg-white p-6 rounded-md shadow-md">
-        <h3 className="text-xl font-semibold mb-4">Recent Activities</h3>
-        <ul>
-          <li className="mb-2">
-            <span className="font-medium">New Student Enrollment</span>: 150 students enrolled today
-          </li>
-          <li className="mb-2">
-            <span className="font-medium">New Teacher Added</span>: Mr. John Doe added as a Math Teacher
-          </li>
-          <li className="mb-2">
-            <span className="font-medium">Class 10 Exam Results</span>: Results published for Class 10
-          </li>
-        </ul>
+        <RecentActivities />
       </div>
 
       {/* Upcoming Events */}
