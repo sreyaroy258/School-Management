@@ -1,5 +1,6 @@
 // Dashboard.js
 import React from 'react';
+import EventCarousel from './EventCarousel';
 
 const Dashboard = () => {
   return (
@@ -43,14 +44,7 @@ const Dashboard = () => {
       {/* Upcoming Events */}
       <div className="mt-10 bg-white p-6 rounded-md shadow-md">
         <h3 className="text-xl font-semibold mb-4">Upcoming Events</h3>
-        <ul>
-          <li className="mb-2">
-            <span className="font-medium">Science Exhibition</span>: 12th December, 2024
-          </li>
-          <li className="mb-2">
-            <span className="font-medium">Parent-Teacher Meeting</span>: 15th December, 2024
-          </li>
-        </ul>
+        <EventCarousel />
       </div>
     </div>
   );
